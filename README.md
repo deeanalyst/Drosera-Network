@@ -115,7 +115,7 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 
 ![image](https://github.com/user-attachments/assets/6d1161f1-4423-4ce6-a1a2-77ce567186dc)
 
-🚨 Error: You may get several error (.eg #429) due to `rpc` issues, you can enter the bellow command instead by adding `--eth-rpc-url`
+🚨 Error: You may get several errors (.eg #429) due to `rpc` issues, to fix, you can enter bellow command by adding `--eth-rpc-url`
 ```bash
 DROSERA_PRIVATE_KEY=xxx drosera apply --eth-rpc-url RPC
 ```
@@ -141,6 +141,7 @@ Open your Trap on Dashboard and Click on `Send Bloom Boost` and deposit some `Ho
 ```bash
 drosera dryrun
 ```
+* You can
 
 ---
 
@@ -252,12 +253,14 @@ Edit `.env` file:
 nano .env
 ```
 * Replace `your_evm_private_key` and `your_vps_public_ip`
+* To save: `CTRL`+`X`, `Y` & `ENTER`.
 
 Edit `docker-compose.yaml` file:
 ```bash
 nano docker-compose.yaml
 ```
-* Replace default `rpc` to your private [Alchemy](https://dashboard.alchemy.com/) or [QuickNod](https://dashboard.quicknode.com/)e Ethereum Holesky RPCs
+* Replace default `rpc` to your private [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) Ethereum Holesky RPCs.
+* To save: `CTRL`+`X`, `Y` & `ENTER`.
 
 ### 6-1-2: Run Operator
 ```
