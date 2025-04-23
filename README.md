@@ -386,8 +386,54 @@ Your `2nd_Operator_Address` is now added to the whitelist in the dashboard of yo
 
 ![image](https://github.com/user-attachments/assets/c9f7fd1f-6c91-4322-b9ca-c4b3cc35aa8e)
 
+### 3- Register 2nd Operator
+```bash
+drosera-operator register --eth-rpc-url https://ethereum-holesky-rpc.publicnode.com --eth-private-key 2nd_Operator_Privatekey
+```
+* Replace `2nd_Operator_Privatekey` with your 2nd Operator Privatekey.
 
+### 4- Open Ports 
+```console
+sudo ufw allow 31315/tcp
+sudo ufw allow 31316/tcp
+```
 
+### Edit `docker-compose.yaml`
+```
+cd Drosera-Network
+```
+```
+nano docker-compose.yaml
+```
+Replace the content of the file with the following codes:
+```yaml
+version: '3'
+services:
+  drosera1:
+    image: ghcr.io/drosera-network/drosera-operator:latest
+    container_name: drosera-node1
+    ports:
+      - "${P2P_PORT1}:31313"          # Maps host port 31313 to container port 31313
+      - "${SERVER_PORT1}:31314"       # Maps host port 31314 to container port 31314
+    volumes:
+      - drosera_data1:/data
+    command: node --db-file-path /data/drosera.db --network-p2p-port 31313 --server-port 31314 --eth-rpc-url Your_RPC_URL --eth-backup-rpc-url https://holesky.drpc.org --drosera-address 0xea08f7d533C2b9A62F40D5326214f39a8E3A32F8 --eth-private-key ${ETH_PRIVATE_KEY} --listen-address 0.0.0.0 --network-external-p2p-address ${VPS_IP} --disable-dnr-confirmation true
+    restart: always
 
+  drosera2:
+    image: ghcr.io/drosera-network/drosera-operator:latest
+    container_name: drosera-node2
+    ports:
+      - "${P2P_PORT2}:31313"          # Maps host port 31315 to container port 31313
+      - "${SERVER_PORT2}:31314"       # Maps host port 31316 to container port 31314
+    volumes:
+      - drosera_data2:/data
+    command: node --db-file-path /data/drosera.db --network-p2p-port 31313 --server-port 31314 --eth-rpc-url RPC_URL --eth-backup-rpc-url https://holesky.drpc.org --drosera-address 0xea08f7d533C2b9A62F40D5326214f39a8E3A32F8 --eth-private-key ${ETH_PRIVATE_KEY2} --listen-address 0.0.0.0 --network-external-p2p-address ${VPS_IP} --disable-dnr-confirmation true
+    restart: always
 
-
+volumes:
+  drosera_data1:
+  drosera_data2:
+```
+* Replace `RPC_URL_1` & `RPC_URL_2` with your own Ethereum Holesky RPC, You can use Alchemy to create a Holesky RPC.
+* You can use a S
