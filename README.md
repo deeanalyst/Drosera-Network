@@ -372,6 +372,22 @@ Edit the following codes at the bottom of `drosera.toml`:
 private_trap = true
 whitelist = ["1st_Operator_Address,2nd_Operator_Address"]
 ```
-Replace `1st_Operator_Address` & `2nd_Operator_Address` with your Operators EVM wallet Public Addresses.
+* Replace `1st_Operator_Address` & `2nd_Operator_Address` with your Operators EVM wallet Public Addresses.
 
 3- Update Trap Configuration:
+```bash
+DROSERA_PRIVATE_KEY=xxx drosera apply
+```
+* Replace `xxx` with your `Trap` EVM wallet `privatekey`.
+
+Your `2nd_Operator_Address` is now added to the whitelist in the dashboard of your Trap.
+
+![image](https://github.com/user-attachments/assets/76b2e12f-5b8e-463a-9bc1-f176f9719d00)
+
+![image](https://github.com/user-attachments/assets/c9f7fd1f-6c91-4322-b9ca-c4b3cc35aa8e)
+
+
+
+
+
+
