@@ -398,7 +398,7 @@ sudo ufw allow 31315/tcp
 sudo ufw allow 31316/tcp
 ```
 
-### Edit `docker-compose.yaml`
+### 5- Edit `docker-compose.yaml`
 ```
 cd Drosera-Network
 ```
@@ -417,7 +417,7 @@ services:
       - "${SERVER_PORT1}:31314"       # Maps host port 31314 to container port 31314
     volumes:
       - drosera_data1:/data
-    command: node --db-file-path /data/drosera.db --network-p2p-port 31313 --server-port 31314 --eth-rpc-url Your_RPC_URL --eth-backup-rpc-url https://holesky.drpc.org --drosera-address 0xea08f7d533C2b9A62F40D5326214f39a8E3A32F8 --eth-private-key ${ETH_PRIVATE_KEY} --listen-address 0.0.0.0 --network-external-p2p-address ${VPS_IP} --disable-dnr-confirmation true
+    command: node --db-file-path /data/drosera.db --network-p2p-port 31313 --server-port 31314 --eth-rpc-url Your_RPC_URL_1 --eth-backup-rpc-url https://holesky.drpc.org --drosera-address 0xea08f7d533C2b9A62F40D5326214f39a8E3A32F8 --eth-private-key ${ETH_PRIVATE_KEY} --listen-address 0.0.0.0 --network-external-p2p-address ${VPS_IP} --disable-dnr-confirmation true
     restart: always
 
   drosera2:
@@ -428,12 +428,93 @@ services:
       - "${SERVER_PORT2}:31314"       # Maps host port 31316 to container port 31314
     volumes:
       - drosera_data2:/data
-    command: node --db-file-path /data/drosera.db --network-p2p-port 31313 --server-port 31314 --eth-rpc-url RPC_URL --eth-backup-rpc-url https://holesky.drpc.org --drosera-address 0xea08f7d533C2b9A62F40D5326214f39a8E3A32F8 --eth-private-key ${ETH_PRIVATE_KEY2} --listen-address 0.0.0.0 --network-external-p2p-address ${VPS_IP} --disable-dnr-confirmation true
+    command: node --db-file-path /data/drosera.db --network-p2p-port 31313 --server-port 31314 --eth-rpc-url Your_RPC_URL_2 --eth-backup-rpc-url https://holesky.drpc.org --drosera-address 0xea08f7d533C2b9A62F40D5326214f39a8E3A32F8 --eth-private-key ${ETH_PRIVATE_KEY2} --listen-address 0.0.0.0 --network-external-p2p-address ${VPS_IP} --disable-dnr-confirmation true
     restart: always
 
 volumes:
   drosera_data1:
   drosera_data2:
 ```
-* Replace `RPC_URL_1` & `RPC_URL_2` with your own Ethereum Holesky RPC, You can use [Alchemy](https://dashboard.alchemy.com/) to create a Holesky RPC.
-* You can use a S
+* Replace `RPC_URL_1` & `RPC_URL_2` with your own Ethereum Holesky RPC, You can use [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) to create Ethereum Holesky RPC.
+* You can use same RPCs for both `RPC_URL_1` & `RPC_URL_2`.
+* To save: `CTRL`+`X`, `Y` & `ENTER`
+
+### 5- Edit `.env`
+```bash
+nano .env
+```
+Replace the content of the file with the following codes:
+```bash
+ETH_PRIVATE_KEY=
+ETH_PRIVATE_KEY2=
+VPS_IP=
+P2P_PORT1=31313
+SERVER_PORT1=31314
+P2P_PORT2=31315
+SERVER_PORT2=31316
+```
+* Enter a value for `ETH_PRIVATE_KEY` & `ETH_PRIVATE_KEY2` (Operators Private key) & `VPS_IP`.
+* To save: `CTRL`+`X`, `Y` & `ENTER`
+
+### 6- Run Operators
+Stop old docker node:
+```bash
+docker compose down -v
+docker stop drosera-node
+docker rm drosera-node
+```
+
+Run Operators:
+```bash
+docker compose up -d
+```
+
+### 7- Opt-in 2nd Operator
+**Method 1**: Login with your 2nd Operator wallet in [Dashboard](https://app.drosera.io/), and Opt-in to your Trap
+
+**Method 2**: via CLI
+```bash
+drosera-operator optin --eth-rpc-url https://ethereum-holesky-rpc.publicnode.com --eth-private-key 2nd_Operator_Privatekey --trap-config-address Trap_Address
+```
+* Replace `2nd_Operator_Privatekey` & `Trap_Address`
+
+### 8- Restart Operators
+```bash
+cd ~/Droseta-Network
+docker compose up -d
+```
+* You will get Green Blocks after a while!
+
+![image](https://github.com/user-attachments/assets/e639c5e9-cacd-42f4-8c4e-82597a6a71fd)
+
+
+### 9- Useful Commands (If Running Two Operators)
+Make sure you are in Operators directory:
+```bash
+cd ~/Droseta-Network
+```
+
+Restart Operators:
+```bash
+docker compose up -d
+# OR
+docker compose restart
+```
+
+Restart Operators seprately:
+```bash
+docker compose up -d drosera1
+docker compose up -d drosera2
+# OR
+docker compose restart drosera1
+docker compose restart drosera2
+```
+
+Kill Operators:
+```bash
+docker compose down -v
+```
+
+**White Blocks for an Operator**: Restart the Operator seprately until it get fixed
+
+![image](https://github.com/user-attachments/assets/7bf3bd34-d706-4c8a-8573-46d124258528)
