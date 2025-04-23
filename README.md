@@ -111,9 +111,15 @@ forge build
 DROSERA_PRIVATE_KEY=xxx drosera apply
 ```
 * Replace `xxx` with your EVM wallet `privatekey` (Ensure it's funded with `Holesky ETH`)
-* Enter the commamd, when prompted, write `ofc` and press Enter.
+* Enter the command, when prompted, write `ofc` and press Enter.
 
 ![image](https://github.com/user-attachments/assets/6d1161f1-4423-4ce6-a1a2-77ce567186dc)
+
+🚨 Error: You may get several error (.eg #429) due to `rpc` issues, you can enter the bellow command instead by adding `--eth-rpc-url`
+```bash
+DROSERA_PRIVATE_KEY=xxx drosera apply --eth-rpc-url RPC
+```
+* Replace `RPC` with your own Ethereum Holesky rpc by registering and creating one in [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/).
 
 ---
 
@@ -241,11 +247,17 @@ cd Drosera-Network
 ```
 cp .env.example .env
 ```
-Edit `.env` file.
+Edit `.env` file:
 ```
 nano .env
 ```
 * Replace `your_evm_private_key` and `your_vps_public_ip`
+
+Edit `docker-compose.yaml` file:
+```bash
+nano docker-compose.yaml
+```
+* Replace default `rpc` to your private [Alchemy](https://dashboard.alchemy.com/) or [QuickNod](https://dashboard.quicknode.com/)e Ethereum Holesky RPCs
 
 ### 6-1-2: Run Operator
 ```
