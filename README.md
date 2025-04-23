@@ -349,3 +349,29 @@ Your node will start producing greeen blocks in the dashboard
 
 ![image](https://github.com/user-attachments/assets/9ad08265-0ea4-49f7-85e5-316677245254)
 
+---
+
+# Run 2nd Operators
+Let's run a 2nd operator on your Trap using `Docker`:
+### 1- Stop SystemD if ruuning operator using it.
+```bash
+sudo systemctl stop drosera
+sudo systemctl disable drosera
+```
+
+### 2- Whitelist Your 2nd Operator
+1- Create a new EVM wallet, Fund it with `Holeksy ETH` and write down its Privatekey (`2nd_Operator_Privatekey`) & PublicAddress (`2nd_Operator_Address`).
+
+2- Edit Trap Configuration:
+```
+cd ~/my-drosera-trap
+nano drosera.toml
+```
+Edit the following codes at the bottom of `drosera.toml`:
+```toml
+private_trap = true
+whitelist = ["1st_Operator_Address,2nd_Operator_Address"]
+```
+Replace `1st_Operator_Address` & `2nd_Operator_Address` with your Operators EVM wallet Public Addresses.
+
+3- Update Trap Configuration:
