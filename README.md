@@ -166,6 +166,7 @@ whitelist = ["Operator_Address"]
 DROSERA_PRIVATE_KEY=xxx drosera apply
 ```
 * Replace `xxx` with your EVM wallet `privatekey`
+* If RPC issue, use `DROSERA_PRIVATE_KEY=xxx drosera apply --eth-rpc-url RPC` and replace `RPC` with your own.
 
 Your Trap should be private now with your operator address whitelisted internally.
 
@@ -394,6 +395,7 @@ whitelist = ["1st_Operator_Address","2nd_Operator_Address"]
 DROSERA_PRIVATE_KEY=xxx drosera apply
 ```
 * Replace `xxx` with your `Trap` EVM wallet `privatekey`.
+* If RPC issue, use `DROSERA_PRIVATE_KEY=xxx drosera apply --eth-rpc-url RPC` and replace `RPC` with your own.
 
 Your `2nd_Operator_Address` is now added to the whitelist in the dashboard of your Trap.
 
