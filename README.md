@@ -428,8 +428,8 @@ services:
     image: ghcr.io/drosera-network/drosera-operator:latest
     container_name: drosera-node1
     ports:
-      - "${P2P_PORT1}:31313"          # Maps host port 31313 to container port 31313
-      - "${SERVER_PORT1}:31314"       # Maps host port 31314 to container port 31314
+      - "${P2P_PORT1}:31313"
+      - "${SERVER_PORT1}:31314"
     volumes:
       - drosera_data1:/data
     command: node --db-file-path /data/drosera.db --network-p2p-port 31313 --server-port 31314 --eth-rpc-url Your_RPC_URL_1 --eth-backup-rpc-url https://holesky.drpc.org --drosera-address 0xea08f7d533C2b9A62F40D5326214f39a8E3A32F8 --eth-private-key ${ETH_PRIVATE_KEY} --listen-address 0.0.0.0 --network-external-p2p-address ${VPS_IP} --disable-dnr-confirmation true
@@ -439,8 +439,8 @@ services:
     image: ghcr.io/drosera-network/drosera-operator:latest
     container_name: drosera-node2
     ports:
-      - "${P2P_PORT2}:31313"          # Maps host port 31315 to container port 31313
-      - "${SERVER_PORT2}:31314"       # Maps host port 31316 to container port 31314
+      - "${P2P_PORT2}:31313"
+      - "${SERVER_PORT2}:31314"
     volumes:
       - drosera_data2:/data
     command: node --db-file-path /data/drosera.db --network-p2p-port 31313 --server-port 31314 --eth-rpc-url Your_RPC_URL_2 --eth-backup-rpc-url https://holesky.drpc.org --drosera-address 0xea08f7d533C2b9A62F40D5326214f39a8E3A32F8 --eth-private-key ${ETH_PRIVATE_KEY2} --listen-address 0.0.0.0 --network-external-p2p-address ${VPS_IP} --disable-dnr-confirmation true
