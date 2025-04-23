@@ -297,7 +297,7 @@ docker compose up -d
 Enter this command in the terminal, But first replace:
 * `PV_KEY` with your `privatekey`
 * `VPS_IP` with your solid vps IP (without anything else)
-* if using a `local` system, then replace vps ip with `0.0.0.0`
+* Replace default `https://ethereum-holesky-rpc.publicnode.com` to your private [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) Ethereum Holesky RPCs.
 ```bash
 sudo tee /etc/systemd/system/drosera.service > /dev/null <<EOF
 [Unit]
