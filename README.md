@@ -385,9 +385,9 @@ nano drosera.toml
 Edit the following codes at the bottom of `drosera.toml`:
 ```toml
 private_trap = true
-whitelist = ["1st_Operator_Address,2nd_Operator_Address"]
+whitelist = ["1st_Operator_Address","2nd_Operator_Address"]
 ```
-* Replace `1st_Operator_Address` & `2nd_Operator_Address` with your Operators EVM wallet Public Addresses.
+* Replace `1st_Operator_Address` & `2nd_Operator_Address` with your Operators EVM wallet Public Addresses between " " symbols.
 
 3- Update Trap Configuration:
 ```bash
