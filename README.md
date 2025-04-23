@@ -435,5 +435,5 @@ volumes:
   drosera_data1:
   drosera_data2:
 ```
-* Replace `RPC_URL_1` & `RPC_URL_2` with your own Ethereum Holesky RPC, You can use Alchemy to create a Holesky RPC.
+* Replace `RPC_URL_1` & `RPC_URL_2` with your own Ethereum Holesky RPC, You can use [Alchemy](https://dashboard.alchemy.com/) to create a Holesky RPC.
 * You can use a S
