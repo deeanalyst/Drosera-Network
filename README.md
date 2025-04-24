@@ -9,8 +9,7 @@ In this Guide, we contribute to Drosera testnet by:
 * 2 CPU Cores
 * 4 GB RAM
 * 20 GB Disk Space
-
-Official [Discord](https://discord.gg/UXAdpTYjgr)
+* Get started with a low-budget `VPS` for as low as $5! [Purchase here](https://my.hostbrr.com/order/forms/a/NTMxNw==)
 
 ### Install Dependecies
 ```
