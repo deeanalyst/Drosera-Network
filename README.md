@@ -566,3 +566,8 @@ volumes:
 * Replace `RPC_URL_1` & `RPC_URL_2` with your own Ethereum Holesky RPC, You can use [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) to create Ethereum Holesky RPC.
 * You can use same RPCs for both `RPC_URL_1` & `RPC_URL_2`.
 * To save: `CTRL`+`X`, `Y` & `ENTER`
+
+Now re-run your Operators! Boom!
+
+![image](https://github.com/user-attachments/assets/58a19b92-f269-4775-90e6-c8c1528185f6)
+
