@@ -532,6 +532,37 @@ Kill Operators:
 docker compose down -v
 ```
 
-**White Blocks for an Operator**: Restart the Operator seprately until it get fixed
+**How to fix White Blocks for an Operator**
 
 ![image](https://github.com/user-attachments/assets/7bf3bd34-d706-4c8a-8573-46d124258528)
+
+Use this `docker-compose.yaml` file instead.
+
+```yaml
+version: '3'
+services:
+  drosera1:
+    image: ghcr.io/drosera-network/drosera-operator:latest
+    container_name: drosera-node1
+    network_mode: host
+    volumes:
+      - drosera_data1:/data
+    command: node --db-file-path /data/drosera.db --network-p2p-port 31313 --server-port 31314 --eth-rpc-url RPC_URL_1 --eth-backup-rpc-url https://holesky.drpc.org --drosera-address 0xea08f7d533C2b9A62F40D5326214f39a8E3A32F8 --eth-private-key ${ETH_PRIVATE_KEY} --listen-address 0.0.0.0 --network-external-p2p-address ${VPS_IP} --disable-dnr-confirmation true
+    restart: always
+
+  drosera2:
+    image: ghcr.io/drosera-network/drosera-operator:latest
+    container_name: drosera-node2
+    network_mode: host
+    volumes:
+      - drosera_data2:/data
+    command: node --db-file-path /data/drosera.db --network-p2p-port 31315 --server-port 31316 --eth-rpc-url RPC_URL_2 --eth-backup-rpc-url https://holesky.drpc.org --drosera-address 0xea08f7d533C2b9A62F40D5326214f39a8E3A32F8 --eth-private-key ${ETH_PRIVATE_KEY2} --listen-address 0.0.0.0 --network-external-p2p-address ${VPS_IP} --disable-dnr-confirmation true
+    restart: always
+
+volumes:
+  drosera_data1:
+  drosera_data2:
+```
+* Replace `RPC_URL_1` & `RPC_URL_2` with your own Ethereum Holesky RPC, You can use [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) to create Ethereum Holesky RPC.
+* You can use same RPCs for both `RPC_URL_1` & `RPC_URL_2`.
+* To save: `CTRL`+`X`, `Y` & `ENTER`
