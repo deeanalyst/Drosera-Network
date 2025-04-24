@@ -532,11 +532,11 @@ Kill Operators:
 docker compose down -v
 ```
 
-**How to fix White Blocks for an Operator**
+### White Blocks for an Operator
 
 ![image](https://github.com/user-attachments/assets/7bf3bd34-d706-4c8a-8573-46d124258528)
 
-Use this `docker-compose.yaml` file instead.
+* Use this `docker-compose.yaml` file instead.
 
 ```yaml
 version: '3'
