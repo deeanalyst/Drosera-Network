@@ -119,7 +119,9 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 
 ![image](https://github.com/user-attachments/assets/6d1161f1-4423-4ce6-a1a2-77ce567186dc)
 
-🚨 Error: You may get several errors (.eg #429) due to `rpc` issues, to fix, you can enter bellow command by adding `--eth-rpc-url`
+#
+
+🚨 **Error**: You may get several errors (.eg #429) due to `rpc` issues, to fix, you can enter bellow command by adding `--eth-rpc-url`
 ```bash
 DROSERA_PRIVATE_KEY=xxx drosera apply --eth-rpc-url RPC
 ```
@@ -536,6 +538,8 @@ Kill Operators:
 docker compose down -v
 ```
 
+# Troubleshooting Erros
+
 ## ⬜️⬜️ White Blocks for an Operator
 
 ![image](https://github.com/user-attachments/assets/7bf3bd34-d706-4c8a-8573-46d124258528)
@@ -587,3 +591,39 @@ docker compose up -d
 ![image](https://github.com/user-attachments/assets/87a6eca8-5d77-44d6-84e8-f370200e02f3)
 
 
+
+## 🚨 **Error**: Apply config failed
+* You may get `Apply config failed` due to several issues:
+![image](https://github.com/user-attachments/assets/326a931f-f107-4865-8d1b-add5a3735ce1)
+
+* You need to verify if you have deployed any trap before.
+* In your `drosera.toml` file, Verify that you have a line showing your trap's address as `address = "0x..."`
+
+![image](https://github.com/user-attachments/assets/f5f9ff6e-f442-4658-999e-5ea11173f9df)
+
+> If you don't see your trap's address as address = "0x..." line, Then follow the steps:
+
+* Connect to the [Dashboard](https://app.drosera.io/) using same account you used to deploy your trap:
+
+![image](https://github.com/user-attachments/assets/50b0b026-8a1d-492c-bb20-41ea1511e215)
+
+
+* Select the **“Traps Owned”** button to display only traps that your account owns:
+
+![image](https://github.com/user-attachments/assets/bc4550c6-b4a7-43ee-833f-fe179d9d5cf5)
+
+* Click on the trap to go to the trap’s page:
+
+![image](https://github.com/user-attachments/assets/e21666c7-fdc2-42f8-9ae9-7e5a5ca16267)
+
+* On the trap’s page, click on the **“Trap Config”** address hyperlink. This will open a page to holesky etherscan.
+
+![image](https://github.com/user-attachments/assets/09d1112c-8d7c-4d49-a4f2-01e660f01139)
+
+* Click the button to copy the contract’s address:
+
+![image](https://github.com/user-attachments/assets/9a8ecf32-a4f2-4da8-9b21-e3ddb2d977c8)
+
+* Paste that address as the value for the corresponding trap’s address field in your drosera.toml file:
+
+![image](https://github.com/user-attachments/assets/5934ce37-d144-4d0e-9084-8a789a6ebc01)
