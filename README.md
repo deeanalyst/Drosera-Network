@@ -105,7 +105,10 @@ bun install
 ```bash
 forge build
 ```
-> skip warnings!
+* skip warnings!
+
+![image](https://github.com/user-attachments/assets/ab0bd1ec-c2b5-473a-adee-6c2d4975ba05)
+
 
 **Deploy Trap**:
 ```bash
