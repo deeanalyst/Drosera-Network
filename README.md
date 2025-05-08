@@ -508,7 +508,7 @@ docker compose up -d
 ### 9- Useful Commands (If Running Two Operators)
 Make sure you are in Operators directory:
 ```bash
-cd ~/Droseta-Network
+cd ~/Drosera-Network
 ```
 
 Restart Operators:
@@ -567,7 +567,19 @@ volumes:
 * You can use same RPCs for both `RPC_URL_1` & `RPC_URL_2`.
 * To save: `CTRL`+`X`, `Y` & `ENTER`
 
-Now re-run your Operators! Boom!
+**Re-run your Operators**:
+```bash
+cd ~/Drosera-Network
+```
+```bash
+docker compose down -v
+```
+```bash
+docker compose up -d
+```
 
-![image](https://github.com/user-attachments/assets/58a19b92-f269-4775-90e6-c8c1528185f6)
+**Now Give it a few minutes. Boom!**
+
+![image](https://github.com/user-attachments/assets/87a6eca8-5d77-44d6-84e8-f370200e02f3)
+
 
