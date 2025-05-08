@@ -50,12 +50,12 @@ cd ~
 cd Drosera-Network
 ```
 
-* Stop Nodes
+* Stop Nodes:
 ```bash
 docker compose down -v
 ```
 
-* Restart Nodes
+* Restart Nodes:
 ```bash
 docker compose up -d
 ```
