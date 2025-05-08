@@ -599,7 +599,7 @@ docker compose up -d
 * You need to verify if you have deployed any trap before.
 * In your `drosera.toml` file, Verify that you have a line showing your trap's address as `address = "0x..."`
 
-![image](https://github.com/user-attachments/assets/f5f9ff6e-f442-4658-999e-5ea11173f9df)
+![image](https://github.com/user-attachments/assets/eb84d0c3-fb8d-43c5-aa00-c6e4422cebbd)
 
 > If you don't see your trap's address as address = "0x..." line, Then follow the steps:
 
