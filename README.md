@@ -71,7 +71,8 @@ foundryup
 **Bun:**
 ```
 curl -fsSL https://bun.sh/install | bash
-
+```
+```
 source /root/.bashrc
 ```
 
