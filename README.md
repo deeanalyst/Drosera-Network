@@ -260,7 +260,7 @@ Edit `docker-compose.yaml` file:
 ```bash
 nano docker-compose.yaml
 ```
-* Replace default `rpc` to your private [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) Ethereum Holesky RPCs.
+* Replace default `--eth-rpc-url` to your private [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) Ethereum Holesky RPCs.
 * To save: `CTRL`+`X`, `Y` & `ENTER`.
 
 ### 6-1-2: Run Operator
