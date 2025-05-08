@@ -191,6 +191,8 @@ curl -LO https://github.com/drosera-network/releases/releases/download/v1.17.1/d
 # Install
 tar -xvf drosera-operator-v1.16.2-x86_64-unknown-linux-gnu.tar.gz
 ```
+* Currently the Operator CLI version is `v1.17.1`. Verify the latest version [here](https://github.com/drosera-network/releases/releases)
+
 Test the CLI with `./drosera-operator --version` to verify it's working.
 ```console
 # Check version
