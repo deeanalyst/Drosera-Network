@@ -40,8 +40,19 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 * Replace `xxx` with your trap's Private Key.
 * Enter `ofc`, when prompted.
 
+## 5. Open UDP ports
+```console
+# 1st operator
+ufw allow 31313/udp
+ufw allow 31314/udp
 
-## 5. Re-Run Operator Node(s)
+# 2nd operator
+ufw allow 31315/udp
+ufw allow 31316/udp
+```
+
+
+## 6. Re-Run Operator Node(s)
 * Head to Operator's directory:
 ```bash
 cd ~
