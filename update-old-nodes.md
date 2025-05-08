@@ -1,4 +1,4 @@
-## Update Drosera CLI (Droseraup)
+## 1. Update Drosera CLI (Droseraup)
 
 ```bash
 curl -L https://app.drosera.io/install | bash
@@ -10,7 +10,7 @@ source /root/.bashrc
 droseraup
 ```
 
-## Update Seed Node in `drosera.roml`
+## 2. Update Seed Node in `drosera.roml`
 You need to replace the previous Seed Node RPC set in `drosera_rpc` field in `drosera.toml` with new Seed Node.
 ```bash
 cd my-drosera-trap
@@ -23,7 +23,7 @@ nano drosera.toml
 ![image](https://github.com/user-attachments/assets/589567b1-7b04-4514-af98-f721b29dfde9)
 
 
-## Verify Trap's Address
+## 3. Verify Trap's Address
 In your `drosera.toml` file, Verify that you have a line showing your trap's address as `address = "0x..."`
 
 ![image](https://github.com/user-attachments/assets/95abf8d9-6b91-4538-9c79-c89222144353)
@@ -33,7 +33,7 @@ If you don't see your trap's address as `address = "0x..."` line, then connet yo
 ![image](https://github.com/user-attachments/assets/5f70f788-4a99-4a6b-9f50-4ca5ce99073b)
 
 
-## Re-Apply Drosera Configurations
+## 4. Re-Apply Drosera Configurations
 ```bash
 DROSERA_PRIVATE_KEY=xxx drosera apply
 ```
@@ -41,7 +41,7 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 * Enter `ofc`, when prompted.
 
 
-## Re-Run Operator Node(s)
+## 5. Re-Run Operator Node(s)
 * Head to Operator's directory:
 ```bash
 cd ~
