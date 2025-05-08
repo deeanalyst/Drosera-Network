@@ -26,7 +26,7 @@ nano drosera.toml
 ## 3. Verify Trap's Address
 In your `drosera.toml` file, Verify that you have a line showing your trap's address as `address = "0x..."`
 
-![image](https://github.com/user-attachments/assets/95abf8d9-6b91-4538-9c79-c89222144353)
+![image](https://github.com/user-attachments/assets/0db14076-1bbd-40fc-b18d-c785cc94776c)
 
 If you don't see your trap's address as `address = "0x..."` line, then connet your missing trap's wallet to the [Dashboard](https://app.drosera.io/), find it under Trap's Config and Create a line like picture above in `drosera.toml` file.
 
