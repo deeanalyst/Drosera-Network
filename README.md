@@ -481,10 +481,6 @@ Replace the content of the file with the following codes:
 ETH_PRIVATE_KEY=
 ETH_PRIVATE_KEY2=
 VPS_IP=
-P2P_PORT1=31313
-SERVER_PORT1=31314
-P2P_PORT2=31315
-SERVER_PORT2=31316
 ```
 * Enter a value for `ETH_PRIVATE_KEY` & `ETH_PRIVATE_KEY2` (Operators Private key) & `VPS_IP`.
 * To save: `CTRL`+`X`, `Y` & `ENTER`
