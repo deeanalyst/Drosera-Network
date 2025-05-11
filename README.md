@@ -119,11 +119,17 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 
 ![image](https://github.com/user-attachments/assets/6d1161f1-4423-4ce6-a1a2-77ce567186dc)
 
+#
+
 * **Existing Users**: If you've deployed a trap with your wallet previously, then you need to add your trap address to `drosera.toml` file, by adding this line: `address = "TRAP_ADDRESS"` in the bottom.
   * Ensure you replace `TRAP_ADDRESS` with your own trap address.
   * If you don't know how to get your trap address, Follow this [step](https://github.com/0xmoei/Drosera-Network/blob/main/README.md#-error-apply-config-failed).
-  * Ensure you add `,` in the end of its previous line.
   * After modifying your `drosera.toml`, re-apply your trap configuration by executing this command: `DROSERA_PRIVATE_KEY=xxx drosera apply`
+  * Finally, as an existing user, Ensure you filled out `drosera.toml` bottom lines like this:
+```
+whitelist = ["Operator1_Address","Operator2_Address"]
+address = "TRAP_ADDRESS"
+```
 
 #
 
