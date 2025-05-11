@@ -125,10 +125,10 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
   * Ensure you replace `TRAP_ADDRESS` with your own trap address.
   * If you don't know how to get your trap address, Follow this [step](https://github.com/0xmoei/Drosera-Network/blob/main/README.md#-error-apply-config-failed).
   * Finally, as an existing user, Ensure you filled out `drosera.toml` bottom lines like this:
-```
-whitelist = ["Operator1_Address","Operator2_Address"]
-address = "TRAP_ADDRESS"
-```
+  ```
+  whitelist = ["Operator1_Address","Operator2_Address"]
+  address = "TRAP_ADDRESS"
+  ```
   * After modifying your `drosera.toml`, re-apply your trap configuration by executing this command: `DROSERA_PRIVATE_KEY=xxx drosera apply`
 
 #
