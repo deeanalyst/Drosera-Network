@@ -119,8 +119,9 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 
 ![image](https://github.com/user-attachments/assets/6d1161f1-4423-4ce6-a1a2-77ce567186dc)
 
-* **Existing Users**: If you've deployed a trap with your wallet previously, then you need to add your trap's config address to `drosera.toml` file, by adding this line: `address = "TRAP_ADDRESS"`.
-  * Ensure you replace `TRAP_ADDRESS` with your own trap address
+* **Existing Users**: If you've deployed a trap with your wallet previously, then you need to add your trap address to `drosera.toml` file, by adding this line: `address = "TRAP_ADDRESS"` in the bottom.
+  * Ensure you replace `TRAP_ADDRESS` with your own trap address.
+  * If you don't know how to get your trap address, Follow this [step](https://github.com/0xmoei/Drosera-Network/blob/main/README.md#-error-apply-config-failed).
 
 
 #
@@ -151,7 +152,6 @@ Open your Trap on Dashboard and Click on `Send Bloom Boost` and deposit some `Ho
 ```bash
 drosera dryrun
 ```
-* You can
 
 ---
 
