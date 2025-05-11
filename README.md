@@ -119,7 +119,10 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 
 ![image](https://github.com/user-attachments/assets/6d1161f1-4423-4ce6-a1a2-77ce567186dc)
 
-* **Existing Users**: If you've deployed a trap previously, then you need to add your trap's 
+* **Existing Users**: If you've deployed a trap with your wallet previously, then you need to add your trap's config address to `drosera.toml` file, by adding this line: `address = "TRAP_ADDRESS"`.
+  * Ensure you replace `TRAP_ADDRESS` with your own trap address
+
+
 #
 
 🚨 **Error**: You may get several errors (.eg #429) due to `rpc` issues, to fix, you can enter bellow command by adding `--eth-rpc-url`
