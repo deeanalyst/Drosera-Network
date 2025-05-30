@@ -544,7 +544,7 @@ Kill Operators:
 docker compose down -v
 ```
 
-# Troubleshooting Erros
+# Troubleshooting Errors
 
 ## ⬜️⬜️ White Blocks for an Operator
 
