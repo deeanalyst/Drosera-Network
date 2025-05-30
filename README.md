@@ -545,7 +545,7 @@ docker compose down -v
 ```
 
 # Immortalize Discord username on-chain and Earn `Cadet` role!
-We assume you have deployed your Traps and running your operators, so here we deploy a new Trap to **Submit our Discord username on-chain** and earn an exclusive **Cadet** role!
+Assuming your Trap is deployed and your operator is running, let's set up a new Trap to submit your Discord username on-chain and unlock an exclusive **Cadet** role
 
 ### Create New Trap
 1- Move to your trap directory:
@@ -595,15 +595,14 @@ contract Trap is ITrap {
 ```
 nano drosera.toml
 ```
-* Replace the value of some variables as follow:
+* Modify the values of the specified variables as follows:
 * `path` = `"out/Trap.sol/Trap.json"`
 * `response_contract` = `"0x4608Afa7f277C8E0BE232232265850d1cDeB600E"`
 * `response_function` = `"respondWithDiscordName(string)"`
-* `
 
 ![image](https://github.com/user-attachments/assets/67b7cd71-0a01-49e7-aa69-540bd3d1f37d)
 
-*  Your final `drosera.toml` file would look like the picture above
+*  Your final `drosera.toml` file should match the example shown above.
 
 ### Deploy Trap
 1- Compile your Trap's Contract:
@@ -632,11 +631,11 @@ After the trap is deployed, we can check if the user has responded by calling th
 cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E "isResponder(address)(bool)" OWNER_ADDRESS --rpc-url https://ethereum-holesky-rpc.publicnode.com
 ```
 * Replace `OWNER_ADDRESS` with your Trap's owner address. (Your main address that has deployed the Trap's contract)
-* If you get `true` as a response, then you have done all the steps successfully.
+* If you receive `true` as a response, it means you have successfully completed all the steps.
 
 ![image](https://github.com/user-attachments/assets/b6f89508-1ce4-46d6-8dcb-685ae7063d07)
 
-* It might take few minutes to successfully get `true` as a response.
+* It may take a few minutes to successfully receive `true` as a response
 
 ### Re-run Operator nodes
 ```
@@ -646,7 +645,6 @@ cd Drosera-Network
 ```
 docker compose up -d
 ```
-
 
 
 # Troubleshooting Errors
