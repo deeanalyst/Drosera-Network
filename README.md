@@ -547,7 +547,7 @@ docker compose down -v
 # Immortalize Discord username on-chain and Earn `Cadet` role!
 Assuming your Trap is deployed and your operator is running, let's set up a new Trap to submit your Discord username on-chain and unlock an exclusive **Cadet** role
 
-### Create New Trap
+### 1. Create New Trap
 1- Move to your trap directory:
 ```bash
 cd my-drosera-trap
@@ -591,7 +591,7 @@ contract Trap is ITrap {
 * Replace `DISCORD_USERNAME` with your discord username.
 * To save: `Ctrl+X`, `Y` & `Enter`
 
-### Edit `drosera.toml` config
+### 2. Edit `drosera.toml` config
 ```
 nano drosera.toml
 ```
@@ -604,7 +604,7 @@ nano drosera.toml
 
 *  Your final `drosera.toml` file should match the example shown above.
 
-### Deploy Trap
+### 3. Deploy Trap
 1- Compile your Trap's Contract:
 ```
 forge build
@@ -625,7 +625,7 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 
 ![image](https://github.com/user-attachments/assets/ddccd255-4288-4a8d-99a2-77ba1269089b)
 
-### Verify Trap can respond
+### 4. Verify Trap can respond
 After the trap is deployed, we can check if the user has responded by calling the `isResponder` function on the response contract.
 ```bash
 cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E "isResponder(address)(bool)" OWNER_ADDRESS --rpc-url https://ethereum-holesky-rpc.publicnode.com
@@ -637,7 +637,7 @@ cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E "isResponder(address)(bool)
 
 * It may take a few minutes to successfully receive `true` as a response
 
-### Re-run Operator nodes
+### 5. Re-run Operator nodes
 ```
 cd
 cd Drosera-Network
