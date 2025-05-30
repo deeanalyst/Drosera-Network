@@ -544,6 +544,111 @@ Kill Operators:
 docker compose down -v
 ```
 
+# Immortalize Discord username on-chain and Earn `Cadet` role!
+We assume you have deployed your Traps and running your operators, so here we deploy a new Trap to **Submit our Discord username on-chain** and earn an exclusive **Cadet** role!
+
+### Create New Trap
+1- Move to your trap directory:
+```bash
+cd my-drosera-trap
+```
+2- Create a new `Trap.sol` file:
+```bash
+nano src/Trap.sol
+```
+3- Paste the following contract code in it:
+```
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import {ITrap} from "drosera-contracts/interfaces/ITrap.sol";
+
+interface IMockResponse {
+    function isActive() external view returns (bool);
+}
+
+contract Trap is ITrap {
+    address public constant RESPONSE_CONTRACT = 0x4608Afa7f277C8E0BE232232265850d1cDeB600E;
+    string constant discordName = "DISCORD_USERNAME"; // add your discord name here
+
+    function collect() external view returns (bytes memory) {
+        bool active = IMockResponse(RESPONSE_CONTRACT).isActive();
+        return abi.encode(active, discordName);
+    }
+
+    function shouldRespond(bytes[] calldata data) external pure returns (bool, bytes memory) {
+        // take the latest block data from collect
+        (bool active, string memory name) = abi.decode(data[0], (bool, string));
+        // will not run if the contract is not active or the discord name is not set
+        if (!active || bytes(name).length == 0) {
+            return (false, bytes(""));
+        }
+
+        return (true, abi.encode(name));
+    }
+}
+```
+* Replace `DISCORD_USERNAME` with your discord username.
+* To save: `Ctrl+X`, `Y` & `Enter`
+
+### Edit `drosera.toml` config
+```
+nano drosera.toml
+```
+* Replace the value of some variables as follow:
+* `path` = `"out/Trap.sol/Trap.json"`
+* `response_contract` = `"0x4608Afa7f277C8E0BE232232265850d1cDeB600E"`
+* `response_function` = `"respondWithDiscordName(string)"`
+* `
+
+![image](https://github.com/user-attachments/assets/67b7cd71-0a01-49e7-aa69-540bd3d1f37d)
+
+*  Your final `drosera.toml` file would look like the picture above
+
+### Deploy Trap
+1- Compile your Trap's Contract:
+```
+forge build
+```
+* If you got errors like: `command not found`, Enter `source /root/.bashrc` or reinstall dependecies from [here](https://github.com/0xmoei/Drosera-Network#1-configure-enviorments)
+
+2- Test the trap before deploying:
+```bash
+drosera dryrun
+```
+
+3- Apply and Deploy the Trap:
+```bash
+DROSERA_PRIVATE_KEY=xxx drosera apply
+```
+* Replace `xxx` with your EVM wallet privatekey (Ensure it's funded with Holesky ETH)
+* Enter the command, when prompted, write `ofc` and press `Enter`.
+
+![image](https://github.com/user-attachments/assets/ddccd255-4288-4a8d-99a2-77ba1269089b)
+
+### Verify Trap can respond
+After the trap is deployed, we can check if the user has responded by calling the `isResponder` function on the response contract.
+```bash
+cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E "isResponder(address)(bool)" OWNER_ADDRESS --rpc-url https://ethereum-holesky-rpc.publicnode.com
+```
+* Replace `OWNER_ADDRESS` with your Trap's owner address. (Your main address that has deployed the Trap's contract)
+* If you get `true` as a response, then you have done all the steps successfully.
+
+![image](https://github.com/user-attachments/assets/b6f89508-1ce4-46d6-8dcb-685ae7063d07)
+
+* It might take few minutes to successfully get `true` as a response.
+
+### Re-run Operator nodes
+```
+cd
+cd Drosera-Network
+```
+```
+docker compose up -d
+```
+
+
+
 # Troubleshooting Errors
 
 ## ⬜️⬜️ White Blocks for an Operator
