@@ -646,6 +646,11 @@ cd Drosera-Network
 docker compose up -d
 ```
 
+### 6. View the List of submitted Discord Names
+```bash
+cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E "getDiscordNamesBatch(uint256,uint256)(string[])" 0 2000 --rpc-url https://ethereum-holesky-rpc.publicnode.com/
+```
+
 
 # Troubleshooting Errors
 
