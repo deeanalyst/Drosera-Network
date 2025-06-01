@@ -628,6 +628,7 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 ### 4. Verify Trap can respond
 After the trap is deployed, we can check if the user has responded by calling the `isResponder` function on the response contract.
 ```bash
+source /root/.bashrc
 cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E "isResponder(address)(bool)" OWNER_ADDRESS --rpc-url https://ethereum-holesky-rpc.publicnode.com
 ```
 * Replace `OWNER_ADDRESS` with your Trap's owner address. (Your main address that has deployed the Trap's contract)
@@ -648,6 +649,7 @@ docker compose up -d
 
 ### 6. View the List of submitted Discord Names
 ```bash
+source /root/.bashrc
 cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E "getDiscordNamesBatch(uint256,uint256)(string[])" 0 2000 --rpc-url https://ethereum-holesky-rpc.publicnode.com/
 ```
 
