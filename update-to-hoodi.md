@@ -37,17 +37,17 @@ Now your `Drosera.toml` file should look something like this:
 ---
 
 ## 3. Update the Contract
-1. Make sure you are in trap directory:
+### 1. Make sure you are in trap directory:
 ```
 cd my-drosera-trap
 ```
 
-2. Create a new Trap.sol file:
+### 2. Create a new Trap.sol file:
 ```
 nano src/Trap.sol
 ```
 
-3. Replase the following contract code in it:
+### 3. Replase the following contract code in it:
 ```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
@@ -90,17 +90,17 @@ Make sure you have ETH on Hoodi testnet network. [Faucet-1](https://hoodi-faucet
 ---
 
 ## 4. Re-Apply Drosera Configurations
-1. Compile contract:
+### 1. Compile contract:
 ```bash
 forge build
 ```
 
-2. Test the newtrap before applying:
+### 2. Test the newtrap before applying:
 ```bash
 drosera dryrun
 ```
 
-3. Apply the Trap:
+### 3. Apply the Trap:
 ```bash
 source /root/.bashrc
 DROSERA_PRIVATE_KEY=xxx drosera apply
@@ -146,7 +146,7 @@ ufw allow 31316/udp
 ---
 
 ## 7. Re-Run Operator Node(s)
-1. Head to Operator's directory:
+### 1. Head to Operator's directory:
 ```bash
 cd ~
 ```
@@ -154,12 +154,12 @@ cd ~
 cd Drosera-Network
 ```
 
-2. Stop Operator(s):
+### 2. Stop Operator(s):
 ```bash
 docker compose down -v
 ```
 
-3. Edit `docker-compose.yaml`
+### 3. Edit `docker-compose.yaml`
 ```bash
 nano docker-compose.yaml
 ```
@@ -170,7 +170,7 @@ nano docker-compose.yaml
 * Update `--eth-backup-rpc-url` value for each operator to a Hoodi rpc.
 
 
-4. Register Operator(s)
+### 4. Register Operator(s)
 ```
 source /root/.bashrc
 
@@ -182,12 +182,12 @@ drosera-operator register --eth-rpc-url https://rpc.hoodi.ethpandaops.io --eth-p
 <img width="675" height="53" alt="image" src="https://github.com/user-attachments/assets/20aa3957-1cfb-4161-a5da-69dc3368ceec" />
 
 
-4. Restart Operator(s):
+### 5. Restart Operator(s):
 ```bash
 docker compose up -d
 ```
 
-5. Node Logs:
+### 6. Node Logs:
 ```bash
 docker compose logs -f
 ```
@@ -195,18 +195,14 @@ docker compose logs -f
 
 <img width="1387" height="608" alt="image" src="https://github.com/user-attachments/assets/e2347d5d-64f6-4f7b-935a-0ca4a9073fa7" />
 
-6. Opt-in Operator(s) to your Trap:
-```bash
-source /root/.bashrc
 
-drosera-operator optin --eth-rpc-url https://rpc.hoodi.ethpandaops.io --eth-private-key PVKEY --trap-config-address TRAP_ADDRESS
-```
-* Replace `PV_KEY` with your operator privatekey
-* Replace `TRAP_ADDRESS` with your Trap address gotten in Step 4
-* If you have more operators, execute the command for each operator
-* Also, you can opt-in to your trap address via web browser by connecting your operator address to the site: https://app.drosera.io/ 
+### 7. Opt-in Operator(s) to your Trap:
+Connect your operator wallet to the [Dashboard](https://app.drosera.io/), Find your Trap address, click on `Opti in` to connect your operator to the Trap
 
-<img width="959" height="40" alt="image" src="https://github.com/user-attachments/assets/1fcd57af-7846-4897-abfd-92597339397f" />
+![image](https://github.com/user-attachments/assets/5189b5cb-cb46-4d10-938a-33f71951dfc2)
 
 
-Now wait until your Node logs get rid of `Fetching block data...`, the your operators start functioning perfectly
+Now refresh the Trap page, Green blocks incoming bro...
+
+<img width="1785" height="563" alt="image" src="https://github.com/user-attachments/assets/22b4640b-e481-4cf3-89d8-ae2c25228d2d" />
+
