@@ -110,7 +110,8 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 
 <img width="739" height="239" alt="image" src="https://github.com/user-attachments/assets/7f49ca60-f9ff-4316-90f6-f9c763486ad1" />
 
-`address` is your new trap address on Hoodie network. Let's add it to the trap config
+* `address` is your new trap address on Hoodie network. Let's add it to the trap config.
+* You can check your Trap address on Hoodi testnet here: https://app.drosera.io/
 
 ---
 
@@ -202,6 +203,9 @@ drosera-operator optin --eth-rpc-url https://rpc.hoodi.ethpandaops.io --eth-priv
 * Replace `PV_KEY` with your operator privatekey
 * Replace `TRAP_ADDRESS` with your Trap address gotten in Step 4
 * If you have more operators, execute the command for each operator
+* Also, you can opt-in to your trap address via web browser by connecting your operator address to the site: https://app.drosera.io/ 
 
 <img width="959" height="40" alt="image" src="https://github.com/user-attachments/assets/1fcd57af-7846-4897-abfd-92597339397f" />
 
+
+Now wait until your Node logs get rid of `Fetching block data...`, the your operators start functioning perfectly
