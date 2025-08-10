@@ -206,3 +206,24 @@ Now refresh the Trap page, Green blocks incoming bro...
 
 <img width="1785" height="563" alt="image" src="https://github.com/user-attachments/assets/22b4640b-e481-4cf3-89d8-ae2c25228d2d" />
 
+---
+
+## 8. Verify Trap can respond
+After the trap is deployed and you got green blocks in the dashboard, we can check if the user has responded by calling the `isResponder` function on the response contract.
+```bash
+source /root/.bashrc
+cast call 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608 "isResponder(address)(bool)" OWNER_ADDRESS --rpc-url https://rpc.hoodi.ethpandaops.io
+```
+* Replace `OWNER_ADDRESS` with your Trap's owner address. (Your main address that has deployed the Trap's contract)
+* If you receive `true` as a response, it means you have successfully completed all the steps.
+
+![image](https://github.com/user-attachments/assets/b6f89508-1ce4-46d6-8dcb-685ae7063d07)
+
+* It may take a few minutes to successfully receive `true` as a response
+
+### 6. View the List of submitted Discord Names
+```bash
+source /root/.bashrc
+cast call 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608 "getDiscordNamesBatch(uint256,uint256)(string[])" 0 2000 --rpc-url https://rpc.hoodi.ethpandaops.io
+```
+
