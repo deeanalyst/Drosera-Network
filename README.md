@@ -12,6 +12,9 @@ In this Guide, we contribute to Drosera testnet by:
 * Get started with a low-budget `VPS` for as low as $5! [Purchase here](https://my.hostbrr.com/order/forms/a/NTMxNw==)
 * Create your own `Ethereum Hoodi RPC` in [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/).
 
+# Existing Holesky user
+If you have deployed your trap and operator on Holesky network, move them to Hoodi network by following [Update To Hoodi](./update-to-hoodi.md)
+
 ### Install Dependecies
 ```
 sudo apt-get update && sudo apt-get upgrade -y
@@ -123,7 +126,7 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 
 * **Existing Users**: If you've deployed a trap with your wallet previously, then you need to add your trap address to `drosera.toml` file, by adding this line: `address = "TRAP_ADDRESS"` in the bottom.
   * Ensure you replace `TRAP_ADDRESS` with your own trap address.
-  * If you don't know how to get your trap address, Follow this [step](https://github.com/0xmoei/Drosera-Network/blob/main/README.md#-error-apply-config-failed).
+  * If you don't know how to get your trap address, Follow this [step](https://github.com/0xmoei/Drosera-Network/blob/main/README.md##-error-apply-config-failed).
   * Finally, as an existing user, Ensure you filled out `drosera.toml` bottom lines like this:
   ```
   whitelist = ["Operator1_Address","Operator2_Address"]
