@@ -113,7 +113,6 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 * `address` is your new trap address on Hoodie network. Let's add it to the trap config.
 * You can check your Trap address on Hoodi testnet here: https://app.drosera.io/
 
-<img width="887" height="300" alt="image" src="https://github.com/user-attachments/assets/164fd17e-5466-45dd-8310-b5e401033c50" />
 
 ---
 
