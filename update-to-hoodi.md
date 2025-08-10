@@ -1,4 +1,4 @@
-## 1. Update Droserap CLI
+<img width="887" height="300" alt="image" src="https://github.com/user-attachments/assets/164fd17e-5466-45dd-8310-b5e401033c50" />## 1. Update Droserap CLI
 ```bash
 curl -L https://app.drosera.io/install | bash
 source /root/.bashrc
@@ -18,7 +18,7 @@ cd my-drosera-trap
 nano drosera.toml
 ```
 Update the following variables as explained:
-* `ethereum_rpc`: Update with Hoodi network rpc. You can usee [Alchemy](https://www.alchemy.com/) or any other third party. To get started, use this: `https://rpc.hoodi.ethpandaops.io`
+* `ethereum_rpc`: Update with Hoodi network rpc. You can use [Alchemy](https://www.alchemy.com/) or [Ankr](https://www.ankr.com/rpc/?utm_referral=LqL9Sv86Te) (Paid) or any other third party. To get started, use this: `https://rpc.hoodi.ethpandaops.io`
 * `drosera_rpc`: `https://relay.hoodi.drosera.io`
 * `eth_chain_id` = `560048`
 * `drosera_address` = `"0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D"`
@@ -30,7 +30,8 @@ Update the trap config with Immortalize Discord Username contract on Hoodi:
 
 Now your `Drosera.toml` file should look something like this:
 
-<img width="833" height="257" alt="image" src="https://github.com/user-attachments/assets/61ff58b4-b331-4d1e-8985-9a690421c2ee" />
+<img width="855" height="311" alt="image" src="https://github.com/user-attachments/assets/ae53c341-50ec-43fa-ac66-96d81cc570d4" />
+
 
 
 ---
@@ -113,7 +114,7 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 
 ---
 
-## 5. Verify Trap's Address
+## 5. Add Trap's Address to your config
 Now add your new Hoodi trap address as `address=""` in `drosera.toml` file:
 
 ```bash
@@ -124,7 +125,7 @@ nano drosera.toml
 ```
 * Add a line starting with `address=""` with its value set to your new trap address on Hoodi from step 4
 
-<img width="852" height="304" alt="image" src="https://github.com/user-attachments/assets/78ed3ae8-700f-4aa6-a6f1-236eaac2e217" />
+<img width="887" height="300" alt="image" src="https://github.com/user-attachments/assets/89b36df6-b1a4-449b-bc54-368162357909" />
 
 
 ---
@@ -151,7 +152,7 @@ cd ~
 cd Drosera-Network
 ```
 
-2. Stop Operator Nodes:
+2. Stop Operator(s):
 ```bash
 docker compose down -v
 ```
@@ -162,27 +163,45 @@ nano docker-compose.yaml
 ```
 * Update `--drosera-address` value for each operator to: `0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D`
 * Update `--eth-rpc-url` value for each operator to a Hoodi rpc
-  * Create your own **Ethereum Hoodi RPC** in [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/).
+  * Create your own **Ethereum Hoodi RPC** in [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) or [Ankr](https://www.ankr.com/rpc/?utm_referral=LqL9Sv86Te) (Paid)
   * Or use these public rpcs: `https://rpc.hoodi.ethpandaops.io` or `https://0xrpc.io/hoodi`
 * Update `--eth-backup-rpc-url` value for each operator to a Hoodi rpc.
 
 
-4. Restart Nodes:
+4. Register Operator(s)
+```
+source /root/.bashrc
+
+drosera-operator register --eth-rpc-url https://rpc.hoodi.ethpandaops.io --eth-private-key PV_KEY --drosera-address 0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D
+```
+* Replace `PV_KEY` with your operator privatekey
+* If you have more operators, execute the command for each operator
+
+<img width="675" height="53" alt="image" src="https://github.com/user-attachments/assets/20aa3957-1cfb-4161-a5da-69dc3368ceec" />
+
+
+4. Restart Operator(s):
 ```bash
 docker compose up -d
 ```
 
-* Node Logs:
+5. Node Logs:
 ```bash
 docker compose logs -f
 ```
-* You will get errors initially
+* You will get `Fetching block data...` initially, after a few mintues, you'll get healthy logs 
 
-![image](https://github.com/user-attachments/assets/c4af432a-cb30-412a-abe4-0e5d0fd5f6ac)
+<img width="1387" height="608" alt="image" src="https://github.com/user-attachments/assets/e2347d5d-64f6-4f7b-935a-0ca4a9073fa7" />
 
-* After a few mintues, you'll get healthy logs:
+6. Opt-in Operator(s) to your Trap:
+```bash
+source /root/.bashrc
 
-![image](https://github.com/user-attachments/assets/418229a7-5462-46bd-b81f-a18996a3c822)
+drosera-operator optin --eth-rpc-url https://rpc.hoodi.ethpandaops.io --eth-private-key PVKEY --trap-config-address TRAP_ADDRESS
+```
+* Replace `PV_KEY` with your operator privatekey
+* Replace `TRAP_ADDRESS` with your Trap address gotten in Step 4
+* If you have more operators, execute the command for each operator
 
-Then, Your operators will produce Green Blocks, bro. Congratz.
-![image](https://github.com/user-attachments/assets/669b4048-3952-4079-95e1-58dd279e194c)
+<img width="959" height="40" alt="image" src="https://github.com/user-attachments/assets/1fcd57af-7846-4897-abfd-92597339397f" />
+
