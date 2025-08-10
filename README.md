@@ -226,7 +226,7 @@ docker pull ghcr.io/drosera-network/drosera-operator:latest
 
 ## 4. Register Operator
 ```bash
-drosera-operator register --eth-rpc-url https://ethereum-hoodi-rpc.publicnode.com --eth-private-key PV_KEY
+drosera-operator register --eth-rpc-url https://rpc.hoodi.ethpandaops.io --eth-private-key PV_KEY
 ```
 * Replace `PV_KEY` with your Drosera EVM `privatekey`. We use the same wallet as our trap wallet.
 
@@ -317,7 +317,7 @@ docker compose up -d
 Enter this command in the terminal, But first replace:
 * `PV_KEY` with your `privatekey`
 * `VPS_IP` with your solid vps IP (without anything else)
-* Replace default `https://ethereum-hoodi-rpc.publicnode.com` to your private [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) Ethereum Hoodi RPCs.
+* Replace default `https://rpc.hoodi.ethpandaops.io` to your private [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) Ethereum Hoodi RPCs.
 ```bash
 sudo tee /etc/systemd/system/drosera.service > /dev/null <<EOF
 [Unit]
@@ -330,7 +330,7 @@ Restart=always
 RestartSec=15
 LimitNOFILE=65535
 ExecStart=$(which drosera-operator) node --db-file-path $HOME/.drosera.db --network-p2p-port 31313 --server-port 31314 \
-    --eth-rpc-url https://ethereum-hoodi-rpc.publicnode.com \
+    --eth-rpc-url https://rpc.hoodi.ethpandaops.io \
     --eth-backup-rpc-url https://rpc.hoodi.ethpandaops.io \
     --drosera-address 0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D \
     --eth-private-key PV_KEY \
@@ -425,7 +425,7 @@ Your `2nd_Operator_Address` is now added to the whitelist in the dashboard of yo
 
 ### 3- Register 2nd Operator
 ```bash
-drosera-operator register --eth-rpc-url https://ethereum-hoodi-rpc.publicnode.com --eth-private-key 2nd_Operator_Privatekey
+drosera-operator register --eth-rpc-url https://rpc.hoodi.ethpandaops.io --eth-private-key 2nd_Operator_Privatekey
 ```
 * Replace `2nd_Operator_Privatekey` with your 2nd Operator Privatekey.
 
@@ -503,7 +503,7 @@ docker compose up -d
 
 **Method 2**: via CLI
 ```bash
-drosera-operator optin --eth-rpc-url https://ethereum-hoodi-rpc.publicnode.com --eth-private-key 2nd_Operator_Privatekey --trap-config-address Trap_Address
+drosera-operator optin --eth-rpc-url https://rpc.hoodi.ethpandaops.io --eth-private-key 2nd_Operator_Privatekey --trap-config-address Trap_Address
 ```
 * Replace `2nd_Operator_Privatekey` & `Trap_Address`
 
@@ -631,7 +631,7 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 After the trap is deployed, we can check if the user has responded by calling the `isResponder` function on the response contract.
 ```bash
 source /root/.bashrc
-cast call 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608 "isResponder(address)(bool)" OWNER_ADDRESS --rpc-url https://ethereum-hoodi-rpc.publicnode.com
+cast call 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608 "isResponder(address)(bool)" OWNER_ADDRESS --rpc-url https://rpc.hoodi.ethpandaops.io
 ```
 * Replace `OWNER_ADDRESS` with your Trap's owner address. (Your main address that has deployed the Trap's contract)
 * If you receive `true` as a response, it means you have successfully completed all the steps.
@@ -652,7 +652,7 @@ docker compose up -d
 ### 6. View the List of submitted Discord Names
 ```bash
 source /root/.bashrc
-cast call 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608 "getDiscordNamesBatch(uint256,uint256)(string[])" 0 2000 --rpc-url https://ethereum-hoodi-rpc.publicnode.com
+cast call 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608 "getDiscordNamesBatch(uint256,uint256)(string[])" 0 2000 --rpc-url https://rpc.hoodi.ethpandaops.io
 ```
 
 
