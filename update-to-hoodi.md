@@ -25,14 +25,12 @@ Update the following variables as explained:
 * `address`: Remove this line if it exists. It specifies the address of your trap on Holesky. Keeping it when deploying a new trap on Hoodie will cause an error.
 
 Update the trap config with Immortalize Discord Username contract on Hoodi:
-* `response_contract`= "0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608"
-* `response_function` = "respondWithDiscordName(string)"
+* `response_contract`= `"0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608"`
+* `response_function` = `"respondWithDiscordName(string)"`
 
 Now your `Drosera.toml` file should look something like this:
 
 <img width="855" height="311" alt="image" src="https://github.com/user-attachments/assets/ae53c341-50ec-43fa-ac66-96d81cc570d4" />
-
-
 
 ---
 
@@ -191,7 +189,7 @@ docker compose up -d
 ```bash
 docker compose logs -f
 ```
-* You will get `Fetching block data...` initially, after a few mintues, you'll get healthy logs 
+* You will get `Operator Node successfully spawned!`. Now your oeprator(s) have to opt-in to the trap
 
 <img width="1387" height="608" alt="image" src="https://github.com/user-attachments/assets/e2347d5d-64f6-4f7b-935a-0ca4a9073fa7" />
 
