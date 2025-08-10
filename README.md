@@ -544,7 +544,7 @@ Kill Operators:
 docker compose down -v
 ```
 
-# Immortalize Discord username on-chain and Earn `Cadet` role!
+# Immortalize Discord username on-chain and Earn `Cadet` role on Hoodi network!
 Assuming your Trap is deployed and your operator is running, let's set up a new Trap to submit your Discord username on-chain and unlock an exclusive **Cadet** role
 
 ### 1. Create New Trap
@@ -556,7 +556,7 @@ cd my-drosera-trap
 ```bash
 nano src/Trap.sol
 ```
-3- Paste the following contract code in it:
+3- Replase the following contract code in it:
 ```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
@@ -568,8 +568,9 @@ interface IMockResponse {
 }
 
 contract Trap is ITrap {
-    address public constant RESPONSE_CONTRACT = 0x4608Afa7f277C8E0BE232232265850d1cDeB600E;
-    string constant discordName = "DISCORD_USERNAME"; // add your discord name here
+    // Updated response contract address
+    address public constant RESPONSE_CONTRACT = 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608;
+    string constant discordName = "YOURDISCORD"; // Replace with your Discord username
 
     function collect() external view returns (bytes memory) {
         bool active = IMockResponse(RESPONSE_CONTRACT).isActive();
@@ -577,9 +578,7 @@ contract Trap is ITrap {
     }
 
     function shouldRespond(bytes[] calldata data) external pure returns (bool, bytes memory) {
-        // take the latest block data from collect
         (bool active, string memory name) = abi.decode(data[0], (bool, string));
-        // will not run if the contract is not active or the discord name is not set
         if (!active || bytes(name).length == 0) {
             return (false, bytes(""));
         }
@@ -597,12 +596,15 @@ nano drosera.toml
 ```
 * Modify the values of the specified variables as follows:
 * `path` = `"out/Trap.sol/Trap.json"`
-* `response_contract` = `"0x4608Afa7f277C8E0BE232232265850d1cDeB600E"`
+* `response_contract` = `"0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608"`
 * `response_function` = `"respondWithDiscordName(string)"`
+* `eth_chain_id` = `560048`
+* `drosera_address` = `"0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D"`
+
+Your final `drosera.toml` file should match the example shown below:
 
 ![image](https://github.com/user-attachments/assets/67b7cd71-0a01-49e7-aa69-540bd3d1f37d)
 
-*  Your final `drosera.toml` file should match the example shown above.
 
 ### 3. Deploy Trap
 1- Compile your Trap's Contract:
@@ -629,7 +631,7 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 After the trap is deployed, we can check if the user has responded by calling the `isResponder` function on the response contract.
 ```bash
 source /root/.bashrc
-cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E "isResponder(address)(bool)" OWNER_ADDRESS --rpc-url https://ethereum-holesky-rpc.publicnode.com
+cast call 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608 "isResponder(address)(bool)" OWNER_ADDRESS --rpc-url https://ethereum-hoodi-rpc.publicnode.com
 ```
 * Replace `OWNER_ADDRESS` with your Trap's owner address. (Your main address that has deployed the Trap's contract)
 * If you receive `true` as a response, it means you have successfully completed all the steps.
@@ -650,7 +652,7 @@ docker compose up -d
 ### 6. View the List of submitted Discord Names
 ```bash
 source /root/.bashrc
-cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E "getDiscordNamesBatch(uint256,uint256)(string[])" 0 2000 --rpc-url https://ethereum-holesky-rpc.publicnode.com/
+cast call 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608 "getDiscordNamesBatch(uint256,uint256)(string[])" 0 2000 --rpc-url https://ethereum-hoodi-rpc.publicnode.com
 ```
 
 
