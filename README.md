@@ -606,7 +606,7 @@ Your final `drosera.toml` file should match the example shown below:
 ![image](https://github.com/user-attachments/assets/67b7cd71-0a01-49e7-aa69-540bd3d1f37d)
 
 
-### 3. Deploy Trap
+### 3. Apply the modifications to the Trap
 1- Compile your Trap's Contract:
 ```
 forge build
