@@ -627,8 +627,18 @@ DROSERA_PRIVATE_KEY=xxx drosera apply
 
 ![image](https://github.com/user-attachments/assets/ddccd255-4288-4a8d-99a2-77ba1269089b)
 
+### 5. Re-run Operator nodes
+```
+cd
+cd Drosera-Network
+```
+```
+docker compose up -d
+```
+Wait until you get green blocks in the explorer.
+
 ### 4. Verify Trap can respond
-After the trap is deployed, we can check if the user has responded by calling the `isResponder` function on the response contract.
+After the trap is deployed and you got green blocks in the dashboard, we can check if the user has responded by calling the `isResponder` function on the response contract.
 ```bash
 source /root/.bashrc
 cast call 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608 "isResponder(address)(bool)" OWNER_ADDRESS --rpc-url https://rpc.hoodi.ethpandaops.io
@@ -639,15 +649,6 @@ cast call 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608 "isResponder(address)(bool)
 ![image](https://github.com/user-attachments/assets/b6f89508-1ce4-46d6-8dcb-685ae7063d07)
 
 * It may take a few minutes to successfully receive `true` as a response
-
-### 5. Re-run Operator nodes
-```
-cd
-cd Drosera-Network
-```
-```
-docker compose up -d
-```
 
 ### 6. View the List of submitted Discord Names
 ```bash
