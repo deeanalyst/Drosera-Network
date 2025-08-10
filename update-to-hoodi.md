@@ -35,7 +35,7 @@ Now your `Drosera.toml` file should look something like this:
 ---
 
 ## 3. Update the Contract
-The default contract of the Drosera is a simple HelloWorld, but we deploy a new to immortalize our Discord usernames and earn **Cadet** role in Discord. Even if you did this before, replace the new code in the next steps to because of a minor update in the code.
+The default contract of the Drosera is a simple HelloWorld, but we deploy a new one to immortalize our Discord usernames and earn **Cadet** role in Discord. Even if you did this before, replace the new code in the next steps because of a minor update in the code.
 
 ### 1. Make sure you are in trap directory:
 ```
