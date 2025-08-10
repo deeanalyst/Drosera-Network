@@ -197,12 +197,12 @@ cd ~
 ```
 ```bash
 # Download
-curl -LO https://github.com/drosera-network/releases/releases/download/v1.17.2/drosera-operator-v1.17.2-x86_64-unknown-linux-gnu.tar.gz
+curl -LO https://github.com/drosera-network/releases/releases/download/v1.20.0/drosera-operator-v1.20.0-x86_64-unknown-linux-gnu.tar.gz
 
 # Install
-tar -xvf drosera-operator-v1.17.2-x86_64-unknown-linux-gnu.tar.gz
+tar -xvf drosera-operator-v1.20.0-x86_64-unknown-linux-gnu.tar.gz
 ```
-* Currently the Operator CLI version is `v1.17.2`. Verify the latest version [here](https://github.com/drosera-network/releases/releases)
+* Currently the Operator CLI version is `v1.20.0`. Verify the latest version [here](https://github.com/drosera-network/releases/releases)
 * You have to get the link of `drosera-operator-v1.x.x-x86_64-unknown-linux-gnu.tar.gz`
 
 Test the CLI with `./drosera-operator --version` to verify it's working.
@@ -280,7 +280,7 @@ Edit `docker-compose.yaml` file:
 ```bash
 nano docker-compose.yaml
 ```
-* Replace default `--eth-rpc-url` to your private [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) Ethereum Hooodi RPCs.
+* Replace default `--eth-rpc-url` to your private [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) Ethereum Hoodi RPCs.
 * To save: `CTRL`+`X`, `Y` & `ENTER`.
 
 ### 6-1-2: Run Operator
@@ -295,7 +295,7 @@ docker logs -f drosera-node
 
 ![image](https://github.com/user-attachments/assets/2ec4d181-ac60-4702-b4f4-9722ef275b50)
 
->  No problem if you are receiveing `WARN drosera_services::network::service: Failed to gossip message: InsufficientPeers`
+>  No problem if you are receiveing `WARN drosera_services::network::service: Failed to gossip message: InsufficientPeers`. It's because you are running only one operator on your trap. In the next steps we deploy two operators.
 
 ### 6-1-4: Optional Docker commands
 ```console
@@ -360,7 +360,7 @@ journalctl -u drosera.service -f
 
 ![image](https://github.com/user-attachments/assets/a4ad6e66-4749-4780-9347-c878399d4067)
 
-> !! No problem if you are receiveing `WARN drosera_services::network::service: Failed to gossip message: InsufficientPeers`
+> !! No problem if you are receiveing `WARN drosera_services::network::service: Failed to gossip message: InsufficientPeers`. It's because you are running only one operator on your trap. In the next steps we deploy two operators.
 
 ### 6-2-4: Optional commands
 ```console
@@ -396,7 +396,7 @@ sudo systemctl disable drosera
 ```
 
 ### 2- Whitelist Your 2nd Operator
-1- Create a new EVM wallet, Fund it with `Holeksy ETH` and write down its Privatekey (`2nd_Operator_Privatekey`) & PublicAddress (`2nd_Operator_Address`).
+1- Create a new EVM wallet, Fund it with `Hoodi ETH` and write down its Privatekey (`2nd_Operator_Privatekey`) & PublicAddress (`2nd_Operator_Address`).
 
 2- Edit Trap Configuration:
 ```
@@ -689,7 +689,7 @@ volumes:
   drosera_data1:
   drosera_data2:
 ```
-* Replace `RPC_URL_1` & `RPC_URL_2` with your own Ethereum Hooodie RPC, You can use [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) to create Ethereum Hoodi RPC.
+* Replace `RPC_URL_1` & `RPC_URL_2` with your own Ethereum Hoodie RPC, You can use [Alchemy](https://dashboard.alchemy.com/) or [QuickNode](https://dashboard.quicknode.com/) to create Ethereum Hoodi RPC.
 * You can use same RPCs for both `RPC_URL_1` & `RPC_URL_2`.
 * To save: `CTRL`+`X`, `Y` & `ENTER`
 
