@@ -570,7 +570,7 @@ interface IMockResponse {
 contract Trap is ITrap {
     // Updated response contract address
     address public constant RESPONSE_CONTRACT = 0x25E2CeF36020A736CF8a4D2cAdD2EBE3940F4608;
-    string constant discordName = "YOURDISCORD"; // Replace with your Discord username
+    string constant discordName = "DISCORD_USERNAME"; // Replace with your Discord username
 
     function collect() external view returns (bytes memory) {
         bool active = IMockResponse(RESPONSE_CONTRACT).isActive();
