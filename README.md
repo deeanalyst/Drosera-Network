@@ -795,7 +795,7 @@ If it fails
 nano remappings.txt
 ```
 
-Change `drosera-contracts/=node_modules/drosera-contracts/src/` to `drosera-contracts/=node_modules/contracts/src/` and save.
+Change the line stating `drosera-contracts/=node_modules/drosera-contracts/src/` to `drosera-contracts/=node_modules/contracts/src/` and save.
 
 ```bash
 rm -rf node_modules bun.lockb && bun install (Removing node_modules and bun.lockb, then reinstalling dependencies.)
