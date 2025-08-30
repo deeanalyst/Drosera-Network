@@ -789,7 +789,7 @@ Complile contracts
 forge build
 ```
 
-If it fails
+If it fails which I presume would definitely happen
 
 ```bash
 nano remappings.txt
@@ -799,8 +799,8 @@ Change the line stating `drosera-contracts/=node_modules/drosera-contracts/src/`
 
 ```bash
 rm -rf node_modules bun.lockb && bun install
-# (Removing node_modules and bun.lockb, then reinstalling dependencies.)
 ```
+Removing node_modules and bun.lockb, then reinstalling dependencies.
 
 Recompile Trap
 ```bash
@@ -818,8 +818,8 @@ nano drosera.toml
 Apply new config using 
 ```bash
 DROSERA_PRIVATE_KEY=xxx drosera apply
-# Replace `xxx` with your Private Key. Make sure it has Ethereum Hoodi Faucet.
 ```
+Replace `xxx` with your Private Key. Make sure it has Ethereum Hoodi Faucet.
 
 > If you want to run the other trap in the `drosera.toml` called `[traps.transfer_event_trap]` just uncomment it by removing the `#` at the beginning of every line in that aspect of the file and deleting the setup for the `[traps.hello_world]` under `[traps]`.
 
@@ -837,8 +837,8 @@ docker images
 From the list that appears, delete all Drosera images.
 ```bash
 docker rmi <IMAGE ID>
-# replace `<IMAGE ID>` with `IMAGE ID` from docker images list.
 ```
+Replace `<IMAGE ID>` with `IMAGE ID` from docker images list.
 
 Give at least 5 minutes from when you stopped the docker container before restart.
 ```bash
