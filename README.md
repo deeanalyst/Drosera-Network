@@ -1,3 +1,4 @@
+Forked this Repo from [0xmoei](https://github.com/0xmoei/Drosera-Network) Contributed [Update your Drosera CLI and Docker Image for Green Blocks]()
 # Drosera-Network
 In this Guide, we contribute to Drosera testnet by:
 1. Installing the CLI
@@ -749,3 +750,86 @@ docker compose up -d
 * Paste that address as the value for the corresponding trap’s address field in your drosera.toml file:
 
 ![image](https://github.com/user-attachments/assets/5934ce37-d144-4d0e-9084-8a789a6ebc01)
+
+## Update your Drosera CLI and Docker Image for Green Blocks
+
+Update Drosera CLI
+```bash
+source ~/.bashrc && droseraup
+```
+
+Remove old files & Recreate Trap Folder
+``bash
+rm -r my-drosera-trap
+mkdir my-drosera-trap && cd my-drosera-trap
+```
+
+Configure folder
+```bash
+git config --global user.email "Github_Email"
+git config --global user.name "Github_Username"
+```
+
+Initialize Trap Template
+```bash
+forge init -t drosera-network/trap-foundry-template
+```
+
+Install Bun
+```bash
+curl -fsSL https://bun.sh/install | bash
+
+source /root/.bashrc
+
+bun install
+```
+
+Complile contracts
+```bash
+forge build
+```
+
+If it fails
+
+```bash
+nano remappings.txt
+```
+
+Change `drosera-contracts/=node_modules/drosera-contracts/src/` to `drosera-contracts/=node_modules/contracts/src/` and save.
+
+```bash
+rm -rf node_modules bun.lockb && bun install (Removing node_modules and bun.lockb, then reinstalling dependencies.)
+```
+
+Recompile Trap
+```bash
+forge build
+```
+
+Reconfigure `drosera.toml` using `nano drosera.toml` with added Whitelist & Trap Address. You may change the RPC in the file too, save the file and reapply new config using `DROSERA_PRIVATE_KEY=xxx drosera apply`
+
+Stop Docker Container
+```bash
+cd Drosera-Network && docker compose down -v
+```
+
+Delete old docker image (Recommended)
+
+```bash
+docker images
+```
+
+From the list that appears, delete all Drosera images.
+```bash
+docker rmi <IMAGE ID>
+# replace `<IMAGE ID>` with `IMAGE ID` from docker images list.
+```
+
+Give at least 5 minutes from when you stopped the docker container before restart.
+```bash
+docker compose up -d
+```
+> Also wait at least 5 minutes, you should start getting Green Blocks
+
+zkgr! 🧡
+
