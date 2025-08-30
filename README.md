@@ -798,7 +798,8 @@ nano remappings.txt
 Change the line stating `drosera-contracts/=node_modules/drosera-contracts/src/` to `drosera-contracts/=node_modules/contracts/src/` and save.
 
 ```bash
-rm -rf node_modules bun.lockb && bun install (Removing node_modules and bun.lockb, then reinstalling dependencies.)
+rm -rf node_modules bun.lockb && bun install
+# (Removing node_modules and bun.lockb, then reinstalling dependencies.)
 ```
 
 Recompile Trap
