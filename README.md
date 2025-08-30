@@ -813,7 +813,13 @@ nano drosera.toml
 ```
 > Add your Wallet Address in the Whitelist `[]` & add your previous Trap Address on a new line as `address = "TRAP_ADDRESS"`.
 
-> You may change the RPC in the file too, save the file and reapply new config using `DROSERA_PRIVATE_KEY=xxx drosera apply`.
+> You may change the RPC in the file too, save the file using `Ctrl` + `X`, `Y` & `Enter`
+
+Apply new config using 
+```bash
+DROSERA_PRIVATE_KEY=xxx drosera apply
+# Replace `xxx` with your Private Key. Make sure it has Ethereum Hoodi Faucet.
+```
 
 > If you want to run the other trap in the `drosera.toml` called `[traps.transfer_event_trap]` just uncomment it by removing the `#` at the beginning of every line in that aspect of the file and deleting the setup for the `[traps.hello_world]` under `[traps]`.
 
