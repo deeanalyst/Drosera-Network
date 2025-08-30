@@ -759,7 +759,7 @@ source ~/.bashrc && droseraup
 ```
 
 Remove old files & Recreate Trap Folder
-``bash
+```bash
 rm -r my-drosera-trap
 mkdir my-drosera-trap && cd my-drosera-trap
 ```
