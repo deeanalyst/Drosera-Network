@@ -1,4 +1,5 @@
-Forked this Repo from [0xmoei](https://github.com/0xmoei/Drosera-Network) Contributed [Update your Drosera CLI and Docker Image for Green Blocks](https://github.com/deeanalyst/Drosera-Network/blob/main/README.md#update-your-drosera-cli-and-docker-image-for-green-blocks)
+Forked this Repo from [0xmoei](https://github.com/0xmoei/).
+Contributed [Update your Drosera CLI and Docker Image for Green Blocks](https://github.com/deeanalyst/Drosera-Network/blob/main/README.md#update-your-drosera-cli-and-docker-image-for-green-blocks)
 # Drosera-Network
 In this Guide, we contribute to Drosera testnet by:
 1. Installing the CLI
